@@ -3,7 +3,7 @@ using System;
 public class Solution {
     public string solution(string s, string skip, int index) {
         string answer = "";
-        char[] charS = s.ToLower().ToCharArray();
+        char[] charS = s.ToCharArray();
 
         for (int i = 0; i < charS.Length; i++)
         {
@@ -11,13 +11,9 @@ public class Solution {
             {
                 charS[i] = (char)(Convert.ToInt32(charS[i]) + 1);
                 if (charS[i] > 'z')
-                {
                     charS[i] = 'a';
-                }
-                if (skip.ToLower().Contains(charS[i]))
-                {
+                if (skip.Contains(charS[i]))
                     j--;
-                }
             }
             answer += charS[i];
         }
