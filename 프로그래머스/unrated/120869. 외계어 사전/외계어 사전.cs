@@ -2,7 +2,6 @@ using System;
 
 public class Solution {
     public int solution(string[] spell, string[] dic) {
-        int answer = 0;
         for (int i = 0; i < dic.Length; i++)
         {
             for (int j = 0; j < spell.Length; j++)
@@ -12,12 +11,11 @@ public class Solution {
                 else
                     dic[i] = "No";
             }
+            if (dic[i] == "")
+            {
+                return 1;
+            }
         }
-        foreach (string item in dic)
-        {
-            if (item == "")
-                answer++;
-        }
-        return (answer == 0) ? 2 : 1;
+        return 2;
     }
 }
