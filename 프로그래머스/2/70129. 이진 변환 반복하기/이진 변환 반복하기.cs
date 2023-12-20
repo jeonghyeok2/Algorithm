@@ -4,7 +4,7 @@ public class Solution {
     public int[] solution(string s) {
         int[] answer = new int[2];
         int index = s.Length;
-        for (int i = 0; i < index; i++)
+        while (true) 
         {
             if (s == "1")
                 break;
