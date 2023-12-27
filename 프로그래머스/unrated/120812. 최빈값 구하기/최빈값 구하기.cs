@@ -3,25 +3,9 @@ using System.Linq;
 
 public class Solution {
     public int solution(int[] array) {
-        int answer = 0;
-        int[] arrInt = new int[1000];
-        bool isBool = true;
-        for (int i = 0; i < array.Length; i++)
-        {
-            arrInt[array[i]]++;
-        }
-        for (int i = 0; i < 1000; i++)
-        {
-            if (arrInt[i] == arrInt.Max() && isBool)
-            {
-                answer = i;
-                isBool = false;
-            }
-            else if (arrInt[i] == arrInt.Max() && !isBool)
-            {
-                return -1;
-            }
-        }
-        return answer;
+         var list = array.GroupBy(x => x, g => g, (x, g) => new { n = x, cnt = g.Count() });
+         var max = list.Where(x => x.cnt == list.Max(o => o.cnt));
+         int answer = max.Count() == 1 ? max.First().n : -1;
+         return answer;
     }
 }
