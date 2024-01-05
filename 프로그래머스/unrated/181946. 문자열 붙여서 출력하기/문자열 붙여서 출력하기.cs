@@ -1,14 +1,11 @@
 using System;
-
+using System.Linq;
 public class Example
 {
     public static void Main()
     {
-        String[] input;
-        input = Console.ReadLine().Split(' ');
-
-        String s1 = input[0];
-        String s2 = input[1];
-        Console.WriteLine(s1 + s2);
+        string input = Console.ReadLine();
+        input = string.Concat(input.Where(c => !Char.IsWhiteSpace(c)));
+        Console.WriteLine(input);
     }
 }
