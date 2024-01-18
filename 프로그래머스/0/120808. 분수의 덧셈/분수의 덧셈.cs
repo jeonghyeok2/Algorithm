@@ -1,28 +1,33 @@
 using System;
 
 public class Solution {
-     public int[] solution(int denum1, int num1, int denum2, int num2)
+    public int[] solution(int numer1, int denom1, int numer2, int denom2)
     {
         int[] answer = new int[2];
-        int temp = 0;
-        int max = 0;
-        int maxNum = 0;
 
-        answer[0] = (num1 * denum2) + (num2 * denum1);
-        answer[1] = num1 * num2;
+        int lcm = denom1 * denom2 / Getgcd(denom1, denom2);
+        answer[0] = numer1 * (lcm / denom1) + numer2 * (lcm / denom2);
+        answer[1] = lcm;
+        int gcd = Getgcd(answer[0], answer[1]);
 
-        max = answer[0];
+        answer[0] /= gcd;
+        answer[1] /= gcd;
 
-        for (int i = 1; i <= max; i++)
+        foreach (int i in answer)
         {
-            if (answer[0] % i == 0 && answer[1] % i == 0)
-            {
-                maxNum = i;
-            }
+            Console.WriteLine(i);
         }
-
-        answer[0] = answer[0] / maxNum;
-        answer[1] = answer[1] / maxNum;
         return answer;
+    }
+
+    private int Getgcd(int a, int b)
+    {
+        while (b != 0)
+        {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
     }
 }
