@@ -4,10 +4,10 @@ using System.Linq;
 public class Solution {
     public int solution(int[] array)
     {
-        int[] answer = CenterNumber(array);
+        int[] answer = SortAlgorithm(array);
         return answer[array.Length / 2];
     }
-    public int[] CenterNumber(int[] array)
+    public int[] SortAlgorithm(int[] array)
     {
         int n = array.Length;
         for (int i = 0; i < n - 1; i++)   //i = 0 to N - 1
