@@ -1,7 +1,8 @@
 using System;
+using System.Text;
 
 public class Solution {
-    public string solution(string my_string)
+   public string solution(string my_string)
     {
         string answer = Swapping(my_string);
         return answer;
@@ -9,11 +10,11 @@ public class Solution {
     public string Swapping(string my_string)
     {
         int length = my_string.Length;
-        string str = "";
+        StringBuilder stringBuilder = new StringBuilder();
         for (int i = length - 1; i >= 0; i--)
         {
-            str += my_string[i];
+            stringBuilder.Append(my_string[i]);
         }
-        return str;
+        return stringBuilder.ToString();
     }
 }
