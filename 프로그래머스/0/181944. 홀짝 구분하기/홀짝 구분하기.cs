@@ -4,10 +4,13 @@ public class Example
 {
     public static void Main()
     {
-        int input = int.Parse(Console.ReadLine());
-        if (input % 2 == 0)
-            Console.WriteLine($"{input} is even");
-        else
-            Console.WriteLine($"{input} is odd");
+        String[] s;
+
+        Console.Clear();
+        s = Console.ReadLine().Split(' ');
+
+        int a = Int32.Parse(s[0]);
+
+        Console.WriteLine(a + " is " + (a % 2 == 0 ? "even" : "odd"));
     }
 }
